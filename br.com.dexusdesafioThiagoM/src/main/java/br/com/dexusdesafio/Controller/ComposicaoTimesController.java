@@ -18,7 +18,7 @@ import br.com.duxusdesafio.model.ComposicaoTime;
 @RestController
 public class ComposicaoTimesController {
 
-	@Autowired
+	@Autowired 
 	private ComposicaoTimesRepository composicaoTimeRespository;
 
 	// salva Composição de times

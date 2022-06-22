@@ -1,0 +1,31 @@
+package conexao_jdbc;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class SingleConection {
+
+	private String url;
+	private String usuario;
+	private String senha;
+	private Connection con;
+	
+	
+	SingleConection(){
+		url ="jdbc:postgresql://localhost:5432/postgres";
+		usuario ="postgres";
+		senha ="postgres";
+		try {
+			Class.forName("org.postgresql.Driver");
+			con =DriverManager.getConnection(url,usuario,senha);
+			
+			
+			
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+				
+	}
+}

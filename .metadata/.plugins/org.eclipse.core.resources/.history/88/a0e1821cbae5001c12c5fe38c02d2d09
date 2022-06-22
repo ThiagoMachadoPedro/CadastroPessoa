@@ -1,0 +1,12 @@
+package conexao_jdbc;
+
+public class testeprincipal {
+public static void main(String[] args) {
+	SingleConection conexao =new SingleConection();
+	
+	
+	
+	
+	
+}
+}

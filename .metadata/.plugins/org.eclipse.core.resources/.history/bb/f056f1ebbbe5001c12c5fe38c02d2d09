@@ -1,0 +1,10 @@
+package Aplication;
+
+import conexao_jdbc.SingleConect
+public class Runaplication {
+
+	SingleConection conexao=new SingleConection();
+	
+}
+	
+

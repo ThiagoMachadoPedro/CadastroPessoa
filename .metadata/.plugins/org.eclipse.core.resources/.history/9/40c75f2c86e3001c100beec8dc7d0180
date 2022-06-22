@@ -1,0 +1,14 @@
+<!DOCTYPE html >
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Formulário</title>
+</head>
+<body>
+	<h1>Formulário</h1>
+	
+	<form action="post" action="/metodos"></form>
+
+	<button>Enviar</button>
+</body>
+</html>

@@ -1,0 +1,15 @@
+package conexao_jdbc;
+
+import junit.framework.TestCase;
+
+public class TesteBancoJDBC extends TestCase {
+
+	
+	public void initBanco() {
+		SingleConection.getConnection();
+	}
+	
+	
+	
+	
+}

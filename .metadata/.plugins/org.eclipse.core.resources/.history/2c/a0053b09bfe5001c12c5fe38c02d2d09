@@ -1,0 +1,26 @@
+package conexao_jdbc;
+
+import java.io.Serial;
+
+import org.junit.Test;
+
+import conexao_jdbcModel.Userposjava;
+import dao.userPosDao;
+import junit.framework.TestCase;
+
+public class TesteBancoJDBC extends TestCase {
+
+	@Test
+	public void initBanco() {
+		
+		SingleConection conexao=new SingleConection();
+		
+	conexao.getConnection();
+	
+	
+	}
+	
+	
+	
+	
+}

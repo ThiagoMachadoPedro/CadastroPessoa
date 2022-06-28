@@ -11,6 +11,11 @@
   color: #e51c23 !important;
 }
 
+form unput[type=submit]{
+	color: white;
+	
+}
+
 .materialize-red.lighten-5 {
   background-color: #fdeaeb !important;
 }

@@ -13,11 +13,7 @@ import br.com.myprojectModel.Pessoa;
 @Transactional
 public interface PessoaRepository extends JpaRepository<Pessoa, Long> {
 
-	@Query("select p from Pessoa p where p.nome like %?1%")// faz pesquisa no banco de dados e busca por letras digitada pelo usuario se fosse 2 parametro colocava and %?%
-	List<Pessoa>findPessoaByName(String nome);//aqui puxo lista de do objeto
-	
-	
-	
-	
-	
+	@Query("select p from Pessoa p where p.nome like %?1%") 
+	List<Pessoa> findPessoaByName(String nome);
+
 }

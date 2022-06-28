@@ -2,7 +2,6 @@ package br.com.myprojectController;
 
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,7 +17,6 @@ import br.com.myprojectRepository.PessoaRepository;
 @Controller
 public class PessoaController {
 
-	@Autowired
 	PessoaRepository pessoaRepository;
 
 	// tela de cadastro
@@ -27,16 +25,20 @@ public class PessoaController {
 
 		ModelAndView modelandView = new ModelAndView("cadastro/cadastropessoa");
 		modelandView.addObject("pessoaobjeto", new Pessoa());
+		Iterable<Pessoa> pessoaItarable = pessoaRepository.findAll();//
+		modelandView.addObject("pessoas", pessoaItarable);
+		modelandView.addObject("pessoaobjeto", new Pessoa());
 
 		return modelandView;
 	}
 
 	// salvar no banco de dados
-	@PostMapping(value = "/salvarpessoa") // method post valva no banco aquisições html dois asteristicos iguinora tudo antes da url
+	@PostMapping(value = "/salvarpessoa") // method post valva no banco aquisições html dois asteristicos iguinora tudo
+											// antes da url
 	public ModelAndView salvar(Pessoa pessoa) {// model ira pegar objeto pessoa e mostrara na tela pro usuario
 
 		pessoaRepository.save(pessoa); // salva
-		
+
 		ModelAndView andview = new ModelAndView("cadastro/cadastropessoa");// html onde esta mapeada
 		Iterable<Pessoa> pessoaItarable = pessoaRepository.findAll();//
 		andview.addObject("pessoas", pessoaItarable);
@@ -64,8 +66,7 @@ public class PessoaController {
 
 		ModelAndView modelandView = new ModelAndView("cadastro/cadastropessoa");
 		modelandView.addObject("pessoaobjeto", pessoa.get());// aqui adiciona na tela pra ser estartado pra usuario
-	
-		
+
 		return modelandView;
 	}
 
@@ -77,8 +78,8 @@ public class PessoaController {
 		pessoaRepository.deleteById(idpessoa); // aqui pegará pessoa do banco é excluirá
 
 		ModelAndView modelandView = new ModelAndView("cadastro/cadastropessoa");
-		modelandView.addObject("pessoas", pessoaRepository.findAll());// aqui adiciona na tela pra ser estartado  															usuario
-		modelandView.addObject("pessoaobjeto", new Pessoa()); 
+		modelandView.addObject("pessoas", pessoaRepository.findAll());// aqui adiciona na tela pra ser estartado usuario
+		modelandView.addObject("pessoaobjeto", new Pessoa());
 
 		return modelandView;
 	}
@@ -89,8 +90,8 @@ public class PessoaController {
 
 		ModelAndView modelandView = new ModelAndView("cadastro/cadastropessoa");
 		modelandView.addObject("pessoas", pessoaRepository.findPessoaByName("nomepesquisa")); // aqui irá consultar a
-																							// query feita no
-																							// repositorio
+																								// query feita no
+																								// repositorio
 		modelandView.addObject("pessoaobjeto", new Pessoa());// aqui voltará pra mesma tela
 
 		return modelandView;
